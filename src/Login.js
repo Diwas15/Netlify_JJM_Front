@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { myContext } from './Contexts/myContext';
 import jjmLogo from './images/jjm_logo.png';
 
+const serverURL = 'https://dummy-jjm-back.onrender.com'
+
 function Login() {
     const context = useContext(myContext);
     const [verifier, setVerifier] = useState(false);
@@ -20,7 +22,7 @@ function Login() {
 
     function getOTP(values){
       setUser(values.username);
-      fetch('http://192.168.29.100:8080/getOtp',{
+      fetch(`${serverURL}/getOtp`,{
         method:"GET",
         headers:{
           user:values.username
@@ -37,7 +39,7 @@ function Login() {
       })
     }
     function Submit(data){
-        fetch('http://192.168.29.100:8080/verifyOtp',{
+        fetch(`${serverURL}/verifyOtp` ,{
           method:'POST',
           body: JSON.stringify({
             user:user,
@@ -59,7 +61,7 @@ function Login() {
             res.text().then((token)=>{
               console.log(token);
               let a = document.createElement('a');
-              a.href = `http://192.168.29.100:8080/?token=${token}`;
+              a.href = `${serverURL}/?token=${token}`;
               a.click();
             })
           }

@@ -3,6 +3,10 @@ import { myContext } from '../Contexts/myContext';
 import '../Styles/One.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 
+
+const serverURL = 'https://dummy-jjm-back.onrender.com'
+
+
 function Seven() {    
     const context = useContext(myContext);
     const  [reviewToken,setReviewToken] = useState(null);
@@ -16,7 +20,7 @@ function Seven() {
 
     const handleSubmit = (values)=>{
         setUser(values.Email);
-        fetch('http://192.168.29.100:8080/getOtp',{
+        fetch(`${serverURL}/getOtp`,{
             method:'GET',
             headers:{
                 user:values.Email
@@ -27,7 +31,7 @@ function Seven() {
     }
 
     const submitOTP = ()=>{
-        fetch('http://192.168.29.100:8080/verifyOtp',{
+        fetch(`${serverURL}/verifyOtp`,{
             method:'POST',
             body:JSON.stringify({otp:otp,user:user}),
             headers:{
@@ -42,7 +46,7 @@ function Seven() {
     }
 
     const sendEvaluation = ()=>{
-        fetch('http://192.168.29.100:8080/verifyToken',{
+        fetch(`${serverURL}/verifyToken`,{
             method:'POST',
             body:JSON.stringify({
                 data:evalData,

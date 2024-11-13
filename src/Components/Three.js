@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { myContext } from '../Contexts/myContext';
 
+const serverURL = 'https://dummy-jjm-back.onrender.com'
+
+
 function Three() {
 
     const context = useContext(myContext);

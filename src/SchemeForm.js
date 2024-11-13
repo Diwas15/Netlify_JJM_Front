@@ -3,6 +3,10 @@ import './Styles/Form.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import org from './images/org.png';
 import { myContext } from './Contexts/myContext';
+
+const serverURL = 'https://dummy-jjm-back.onrender.com'  
+
+
 function SchemeForm() {
   const context = useContext(myContext);
   const [list, setList] = useState([{Component:'',Specification:''}]);
@@ -102,19 +106,6 @@ function SchemeForm() {
   }
 
 
-  // useEffect(()=>{
-  //   fetch('http://192.168.29.100:8080/verifyToken',{
-  //     method:"GET",
-  //     headers:{
-  //       Authentication:context.token
-  //     }
-  //   }).then((res)=>console.log(res)).catch((err)=>{
-  //     console.log(err);
-  //   })
-  // },[context.authToken]);
-
-
-
   
   const addComponent = (key="")=>{
     
@@ -177,7 +168,7 @@ function SchemeForm() {
       values.Video_Links = links;
       values.Scheme_Layout.PDF = url;
       console.log(values);
-      fetch('http://192.168.29.100:8080/addScheme',{
+      fetch(`${serverURL}/addScheme`,{
       method:'POST',
       body:JSON.stringify(values),
       headers:{

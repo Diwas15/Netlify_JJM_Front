@@ -10,6 +10,8 @@ import description from './images/description.png'
 import issue from './images/issue.png'
 
 
+const serverURL = 'https://dummy-jjm-back.onrender.com'
+
 function GrievanceForm() {
     const initialValues = {
         Location:{
@@ -34,7 +36,7 @@ function GrievanceForm() {
     const handleSubmit = (values)=>{
         
         console.log(values);
-        fetch('http://192.168.29.100:8080/grievance',{
+        fetch(`${serverURL}/grievance`,{
             method:'POST',
             body:JSON.stringify(values),
             headers:{

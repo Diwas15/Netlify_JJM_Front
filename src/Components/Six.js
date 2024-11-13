@@ -1,6 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { myContext } from '../Contexts/myContext';
 
+
+const serverURL = 'https://dummy-jjm-back.onrender.com'
+
+
 function Six() {
 
     const context = useContext(myContext);

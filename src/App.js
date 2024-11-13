@@ -20,8 +20,9 @@ import Seven from './Components/Seven';
 import Login from './Login';
 import SchemeForm from './SchemeForm';
 import Complaint from './grievanceForm';
-import QR from './QR';
 
+
+const serverURL = 'https://dummy-jjm-back.onrender.com'
 
 function App() {
   const [authToken, setAuthToken] = useState('d');
@@ -32,7 +33,6 @@ function App() {
       <Routes>
         <Route index path='/' element={<Login/>}/>
         <Route path='/schemes' element={<Scheme/>} />
-        <Route path='/schemesQR' element={<QR/>} />
         <Route path='/grievanceForm' element={<Complaint/>} />
       </Routes>
     </BrowserRouter>
@@ -50,7 +50,7 @@ function Scheme(){
     const search = window.location.search;
     const params = new URLSearchParams(search);
     const id = params.get('schemeID');
-    fetch(`http://192.168.29.100:8080/schemes?schemeID=${id}`).then((res)=>{
+    fetch(`${serverURL}/schemes?schemeID=${id}`).then((res)=>{
       if(res.status == 301) {
         window.alert("scheme not found");
         navigate('/')
