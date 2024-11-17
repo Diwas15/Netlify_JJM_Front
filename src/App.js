@@ -138,7 +138,7 @@ function Scheme(){
             <div className="title">Submit your grievance through : </div>
             <a href="https://wa.me/919720678657"><div style={{backgroundColor:'#16A34A'}} className="tabs"><img src={whatsapp} alt="" />WhatsApp</div></a>
             <a href="tel:919720678657"><div style={{backgroundColor:'#CB8A1D'}} className="tabs"><img src={phone} alt="" />Phone</div></a>
-            <a href="http://192.168.29.100:3001/grievanceForm" target='_blank'><div style={{backgroundColor:'red'}} className="tabs"><img src={message1} alt="" />Online</div></a>
+            <a href="https://dummy-jjm-front.onrender.com/grievanceForm" target='_blank'><div style={{backgroundColor:'red'}} className="tabs"><img src={message1} alt="" />Online</div></a>
           </div>
         </div>
         <hr />
