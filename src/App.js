@@ -18,7 +18,6 @@ import Five from './Components/Five';
 import Six from './Components/Six';
 import Seven from './Components/Seven';
 import Login from './Login';
-import SchemeForm from './SchemeForm';
 import Complaint from './grievanceForm';
 
 
@@ -43,7 +42,6 @@ function App() {
 function Scheme(){
   const [clicked, setClicked] = useState("one");
   const [scheme,setScheme] = useState('');
-  const [desc, setDesc] = useState('');
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -65,9 +63,6 @@ function Scheme(){
     }).catch((err)=>console.log("fetch nahi hua"));
   },[]);
 
-  useEffect(()=>{
-    setDesc(scheme.Basic_Details);
-  },[scheme]);
 
  
 
@@ -88,7 +83,7 @@ function Scheme(){
           <h1>{scheme? scheme.Basic_Details.Name:''}</h1>
           <p style = {{margin: '1rem'}} >{scheme?`${scheme.Basic_Details.Village}, ${scheme.Basic_Details.District}`:''}</p>
           <p>Jal Nigam Uttarakhand</p>
-          <p>{desc?desc.Division:''} Division</p>
+          <p>{scheme?scheme.Basic_Details.Division:''} Division</p>
         </div>
         <div className='videos'>
           <div className="video_container">
@@ -125,13 +120,27 @@ function Scheme(){
           </div>
           <div className="display_box">
         
-              <One/>
-              <Two/>
-              <Three/>
-              <Four/>
-              <Five/>
-              <Six/>
-              <Seven/>
+              {
+                clicked=='one' &&
+              <One/>}
+              {
+                clicked=='two' &&
+              <Two/>}
+              {
+                clicked=='three' &&
+              <Three/>}
+              {
+                clicked=='four' &&
+              <Four/>}
+              {
+                clicked=='five' &&
+              <Five/>}
+              {
+                clicked=='six' &&
+              <Six/>}
+              {
+                clicked=='seven' &&
+              <Seven/>}
          
           </div>
           <div className="grievance_box">
