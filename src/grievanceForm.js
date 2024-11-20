@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './App.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import logo from './images/jjm_logo.png'
 import leakage from './images/leakage.png'
