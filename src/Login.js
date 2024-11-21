@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { myContext } from './Contexts/myContext';
 import jjmLogo from './images/jjm_logo.png';
 
-const serverURL = 'https://dummy-jjm-back.onrender.com'
+// const serverURL = 'https://dummy-jjm-back.onrender.com'
+
+const serverURL = 'https://dummyjjmback-production.up.railway.app'
 
 function Login() {
     const context = useContext(myContext);

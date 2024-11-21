@@ -4,7 +4,10 @@ import '../Styles/One.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 
 
-const serverURL = 'https://dummy-jjm-back.onrender.com'
+// const serverURL = 'https://dummy-jjm-back.onrender.com'
+
+
+const serverURL = 'https://dummyjjmback-production.up.railway.app'
 
 
 function Seven() {    

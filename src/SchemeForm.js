@@ -4,7 +4,9 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import org from './images/org.png';
 import { myContext } from './Contexts/myContext';
 
-const serverURL = 'https://dummy-jjm-back.onrender.com'  
+// const serverURL = 'https://dummy-jjm-back.onrender.com'  
+
+const serverURL = 'https://dummyjjmback-production.up.railway.app'
 
 
 function SchemeForm() {

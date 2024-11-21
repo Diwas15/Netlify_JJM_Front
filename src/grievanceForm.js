@@ -12,7 +12,10 @@ import description from './images/description.png'
 import issue from './images/issue.png'
 
 
-const serverURL = 'https://dummy-jjm-back.onrender.com'
+// const serverURL = 'https://dummy-jjm-back.onrender.com'
+
+const serverURL = 'https://dummyjjmback-production.up.railway.app'
+
 
 function GrievanceForm() {
     const initialValues = {
