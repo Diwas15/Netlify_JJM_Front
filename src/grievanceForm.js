@@ -38,7 +38,7 @@ function GrievanceForm() {
     const handleSubmit = (values)=>{
         
         console.log(values);
-        fetch(`${serverURL}/grievance`,{
+        fetch(`${serverURL}/submitComplaint`,{
             method:'POST',
             body:JSON.stringify(values),
             headers:{
