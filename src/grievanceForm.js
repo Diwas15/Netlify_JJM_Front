@@ -45,7 +45,10 @@ function GrievanceForm() {
                 "Content-Type":"application/json"
             }
             
-        }).then((res)=>console.log(res)).catch((err)=>console.log(err));
+        }).then((res)=>{
+            window.alert("Your grievance has been submitted. The department will contact you soon.");
+            window.location.reload();
+        }).catch((err)=>console.log(err));
     }
   return (
     
