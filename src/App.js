@@ -72,97 +72,107 @@ function Scheme(){
 
   
   return(
-    <div id='App' className="App">
-      <myContext.Provider value={{clicked,setClicked, scheme,setScheme}}>
-        <header className = "header" >
-          <img src={jjm_logo} alt="" />
-          <div className="head_text">
-            <h2>Jal Jeevan Mission</h2>
-            <p>{scheme? scheme.Dept+' Uttarakhand':''}</p> 
+    <>
+      {scheme=='' &&
+        <>
+          <lottie-player src="https://lottie.host/e1e6788a-7874-4035-9cb6-67525ccb5373/1RzfAxrxJw.json" background="##ffffff" speed="1" style={{ width: '200px', height: '200px'}} loop autoplay direction="1" mode="normal"></lottie-player>
+          <h2 style={{color:'#3397BB'}}>Jal Jeevan Mission</h2>
+        </>
+      }
+      {scheme &&
+        <div id='App' className="App">
+          <myContext.Provider value={{clicked,setClicked, scheme,setScheme}}>
+            <header className = "header" >
+              <img src={jjm_logo} alt="" />
+              <div className="head_text">
+                <h2>Jal Jeevan Mission</h2>
+                <p>{scheme? scheme.Dept+' Uttarakhand':''}</p> 
+              </div>
+              <div id="google_translate_element"></div>
+            </header>
+            <div className="scheme_Head">
+              <img src={org} alt="Uttarakhand Sarkar" />
+              <h1>{scheme? scheme.Basic_Details.Name:''}</h1>
+              <p style = {{margin: '1rem'}} >{scheme?`${scheme.Basic_Details.Village+ ','} ${scheme.Basic_Details.District}`:''}</p>
+              <p>{scheme? scheme.Dept+' Uttarakhand':''}</p>
+              <p>{scheme?scheme.Basic_Details.Division+' Division':''}</p>
+            </div>
+            <div className='videos'>
+              <div className="video_container">
+                <iframe className='player' src="https://www.youtube.com/embed/Qu7gGnwzi9M?si=_-UKk15m4V1xET8Z" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+              </div>
+                {
+                  scheme && 
+                  scheme.Video_Links.map((value,key)=>{
+                    let str = value.replace('youtu.be','www.youtube.com/embed');
+                    console.log(str);
+                    return <div className="video_container">
+                      <iframe className='player' src={str} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                    </div>
+                    
+                  })
+                }
+              
+            </div>
+            <div className="content_body">
+              <div className="selector_box">
+                <p id='one' className={clicked=="one"?'change_back':''} onClick={()=>setClicked("one")}>Basic Details</p>
+                <hr />
+                <p id='two' className={clicked=="two"?'change_back':''} onClick={()=>setClicked("two")}>Scheme Details</p>
+                <hr />
+                <p id='three' className={clicked=="three"?'change_back':''} onClick={()=>setClicked("three")}>Field Functionary</p>
+                <hr />
+                <p id='four' className={clicked=="four"?'change_back':''} onClick={()=>setClicked("four")}>Water Quality</p>
+                <hr />
+                <p id='five' className={clicked=="five"?'change_back':''} onClick={()=>setClicked("five")}>Scheme Component</p>
+                <hr />
+                <p id='six' className={clicked=="six"?'change_back':''} onClick={()=>setClicked("six")}>Scheme Layout</p>
+                <hr />
+                <p id='seven' onClick={()=>setClicked("seven")} style={{color:'red', backgroundColor:clicked=="seven"?'black':'#edf2f7'}}>Scheme Evaluation</p>
+              </div>
+              <div className="display_box">
+            
+                  {
+                    clicked=='one' &&
+                  <One/>}
+                  {
+                    clicked=='two' &&
+                  <Two/>}
+                  {
+                    clicked=='three' &&
+                  <Three/>}
+                  {
+                    clicked=='four' &&
+                  <Four/>}
+                  {
+                    clicked=='five' &&
+                  <Five/>}
+                  {
+                    clicked=='six' &&
+                  <Six/>}
+                  {
+                    clicked=='seven' &&
+                  <Seven/>}
+             
+              </div>
+              <div className="grievance_box">
+                <div className="title">Submit your grievance through : </div>
+                <a href="https://wa.me/919720678657"><div style={{backgroundColor:'#16A34A'}} className="tabs"><img src={whatsapp} alt="" />WhatsApp</div></a>
+                <a href="tel:919720678657"><div style={{backgroundColor:'#CB8A1D'}} className="tabs"><img src={phone} alt="" />Phone</div></a>
+                <a href="https://jjmwebsite.netlify.app/grievanceForm" target='_blank'><div style={{backgroundColor:'red'}} className="tabs"><img src={message1} alt="" />Online</div></a>
+              </div>
+            </div>
+            <hr />
+            <footer className='footer'>
+              <h2>You can follow us on</h2>
+              <a href="https://m.facebook.com/jjmuttarakhand1/?" target='_blank'><img src={facebook} alt="" /></a>
+              <a href="https://www.instagram.com/jjmuttarakhand1/" target='_blank'><img src={instagram} alt="" /></a>
+              <a href="https://x.com/jjmuttarakhand1" target='_blank'><img src={twitter} alt="" /></a>
+            </footer>
+          </myContext.Provider>
           </div>
-          <div id="google_translate_element"></div>
-        </header>
-        <div className="scheme_Head">
-          <img src={org} alt="Uttarakhand Sarkar" />
-          <h1>{scheme? scheme.Basic_Details.Name:''}</h1>
-          <p style = {{margin: '1rem'}} >{scheme?`${scheme.Basic_Details.Village+ ','} ${scheme.Basic_Details.District}`:''}</p>
-          <p>{scheme? scheme.Dept+' Uttarakhand':''}</p>
-          <p>{scheme?scheme.Basic_Details.Division+' Division':''}</p>
-        </div>
-        <div className='videos'>
-          <div className="video_container">
-            <iframe className='player' src="https://www.youtube.com/embed/Qu7gGnwzi9M?si=_-UKk15m4V1xET8Z" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-          </div>
-            {
-              scheme && 
-              scheme.Video_Links.map((value,key)=>{
-                let str = value.replace('youtu.be','www.youtube.com/embed');
-                console.log(str);
-                return <div className="video_container">
-                  <iframe className='player' src={str} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                </div>
-                
-              })
-            }
-          
-        </div>
-        <div className="content_body">
-          <div className="selector_box">
-            <p id='one' className={clicked=="one"?'change_back':''} onClick={()=>setClicked("one")}>Basic Details</p>
-            <hr />
-            <p id='two' className={clicked=="two"?'change_back':''} onClick={()=>setClicked("two")}>Scheme Details</p>
-            <hr />
-            <p id='three' className={clicked=="three"?'change_back':''} onClick={()=>setClicked("three")}>Field Functionary</p>
-            <hr />
-            <p id='four' className={clicked=="four"?'change_back':''} onClick={()=>setClicked("four")}>Water Quality</p>
-            <hr />
-            <p id='five' className={clicked=="five"?'change_back':''} onClick={()=>setClicked("five")}>Scheme Component</p>
-            <hr />
-            <p id='six' className={clicked=="six"?'change_back':''} onClick={()=>setClicked("six")}>Scheme Layout</p>
-            <hr />
-            <p id='seven' onClick={()=>setClicked("seven")} style={{color:'red', backgroundColor:clicked=="seven"?'black':'#edf2f7'}}>Scheme Evaluation</p>
-          </div>
-          <div className="display_box">
-        
-              {
-                clicked=='one' &&
-              <One/>}
-              {
-                clicked=='two' &&
-              <Two/>}
-              {
-                clicked=='three' &&
-              <Three/>}
-              {
-                clicked=='four' &&
-              <Four/>}
-              {
-                clicked=='five' &&
-              <Five/>}
-              {
-                clicked=='six' &&
-              <Six/>}
-              {
-                clicked=='seven' &&
-              <Seven/>}
-         
-          </div>
-          <div className="grievance_box">
-            <div className="title">Submit your grievance through : </div>
-            <a href="https://wa.me/919720678657"><div style={{backgroundColor:'#16A34A'}} className="tabs"><img src={whatsapp} alt="" />WhatsApp</div></a>
-            <a href="tel:919720678657"><div style={{backgroundColor:'#CB8A1D'}} className="tabs"><img src={phone} alt="" />Phone</div></a>
-            <a href="https://jjmwebsite.netlify.app/grievanceForm" target='_blank'><div style={{backgroundColor:'red'}} className="tabs"><img src={message1} alt="" />Online</div></a>
-          </div>
-        </div>
-        <hr />
-        <footer className='footer'>
-          <h2>You can follow us on</h2>
-          <a href="https://m.facebook.com/jjmuttarakhand1/?" target='_blank'><img src={facebook} alt="" /></a>
-          <a href="https://www.instagram.com/jjmuttarakhand1/" target='_blank'><img src={instagram} alt="" /></a>
-          <a href="https://x.com/jjmuttarakhand1" target='_blank'><img src={twitter} alt="" /></a>
-        </footer>
-      </myContext.Provider>
-      </div>
+      }
+    </>
   )
 }
 export default App;
