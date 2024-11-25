@@ -78,7 +78,7 @@ function Scheme(){
           <img src={jjm_logo} alt="" />
           <div className="head_text">
             <h2>Jal Jeevan Mission</h2>
-            <p>Jal Sansthan Uttarakhand</p> 
+            <p>{scheme? scheme.Dept+' Uttarakhand':''}</p> 
           </div>
           <div id="google_translate_element"></div>
         </header>
@@ -86,7 +86,7 @@ function Scheme(){
           <img src={org} alt="Uttarakhand Sarkar" />
           <h1>{scheme? scheme.Basic_Details.Name:''}</h1>
           <p style = {{margin: '1rem'}} >{scheme?`${scheme.Basic_Details.Village}, ${scheme.Basic_Details.District}`:''}</p>
-          <p>Jal Sansthan Uttarakhand</p>
+          <p>{scheme? scheme.Dept+' Uttarakhand':''}</p>
           <p>{scheme?scheme.Basic_Details.Division:''} Division</p>
         </div>
         <div className='videos'>
