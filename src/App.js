@@ -85,9 +85,9 @@ function Scheme(){
         <div className="scheme_Head">
           <img src={org} alt="Uttarakhand Sarkar" />
           <h1>{scheme? scheme.Basic_Details.Name:''}</h1>
-          <p style = {{margin: '1rem'}} >{scheme?`${scheme.Basic_Details.Village}, ${scheme.Basic_Details.District}`:''}</p>
+          <p style = {{margin: '1rem'}} >{scheme?`${scheme.Basic_Details.Village+ ','} ${scheme.Basic_Details.District}`:''}</p>
           <p>{scheme? scheme.Dept+' Uttarakhand':''}</p>
-          <p>{scheme?scheme.Basic_Details.Division:''} Division</p>
+          <p>{scheme?scheme.Basic_Details.Division+'Division':''}</p>
         </div>
         <div className='videos'>
           <div className="video_container">
