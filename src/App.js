@@ -74,10 +74,10 @@ function Scheme(){
   return(
     <>
       {scheme=='' &&
-        <>
+        <div style={{position:'relative',top:'150px',display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
           <lottie-player src="https://lottie.host/e1e6788a-7874-4035-9cb6-67525ccb5373/1RzfAxrxJw.json" background="##ffffff" speed="1" style={{ width: '200px', height: '200px'}} loop autoplay direction="1" mode="normal"></lottie-player>
           <h2 style={{color:'#3397BB'}}>Jal Jeevan Mission</h2>
-        </>
+      </div>
       }
       {scheme &&
         <div id='App' className="App">
