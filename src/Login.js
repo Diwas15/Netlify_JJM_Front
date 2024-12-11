@@ -30,7 +30,7 @@ function Login() {
         }
       }).then((res)=>{
         if(res.status!=200){
-          window.alert("invalid Email");
+          window.alert("User not authorized");
         }
         else {
           setVerifier(true);
